@@ -4,7 +4,7 @@ const PlayerData = require('./../models/player');
 const TeamData = require('./../models/team');
 const axios = require('axios');
 
-const MAX_REQUEST = 15; //Set a max number of request per minute
+const MAX_REQUEST = 13; //Set a max number of request per minute
 
 const instance = axios.create({
   baseURL: 'http://api.football-data.org',
@@ -14,7 +14,7 @@ const instance = axios.create({
 function getApi(path, r = 0) {
   return instance.get(path)
   .then(function (response) {
-    console.log('yes' );
+    console.log('success api call' );
     return response.data;
   })
   .catch(function (error) {
