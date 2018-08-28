@@ -8,48 +8,18 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET info of all competitions. */
-router.get('/competitions', (req, res, next) => {
-  ctrls.tasks.getCompetitions().then( result => {
-    res.status(200).json({
-      data: result
-    });
-  });
-});
+router.get('/competitions', ctrls.tasks.getCompetitions);
 
 /* GET info of a competition, also save info of players and teams in DB. */
-router.get('/competitions/:id', (req, res, next) => {
-  ctrls.tasks.getCompetition(req.params.id).then( result => {
-    res.status(200).json({
-      data: result
-    });
-  });
-});
+router.get('/competitions/:id', ctrls.tasks.getCompetition);
 
 /* GET info of all teams saved in DB. */
-router.get('/team', (req, res, next) => {
-  ctrls.tasks.getTeams().then( result => {
-    res.status(200).json({
-      data: result
-    });
-  });
-});
+router.get('/team', ctrls.tasks.getTeams);
 
 /* GET info of a team saved in DB. */
-router.get('/team/:id', (req, res, next) => {
-  ctrls.tasks.getTeam(req.params.id).then( result => {
-    res.status(200).json({
-      data: result
-    });
-  });
-});
+router.get('/team/:id', ctrls.tasks.getTeam);
 
 /* GET info of all players saved in DB. */
-router.get('/player', (req, res, next) => {
-  ctrls.tasks.getPlayers().then( result => {
-    res.status(200).json({
-      data: result
-    });
-  });
-});
+router.get('/player', ctrls.tasks.getPlayers);
 
 module.exports = router;
